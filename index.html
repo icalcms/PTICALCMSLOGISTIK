@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PT. ICAL CMS LOGISTIK</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f0f8ff; margin: 0; }
+    header, footer { background: #007BFF; color: white; text-align: center; padding: 1rem; }
+    section { padding: 2rem; max-width: 900px; margin: auto; }
+    iframe { width: 100%; height: 300px; border: none; margin-bottom: 1rem; }
+    input, textarea, button {
+      width: 100%; padding: 0.75rem; margin-top: 0.5rem; border: 1px solid #ccc; border-radius: 8px;
+    }
+    button { background: green; color: white; font-weight: bold; border: none; cursor: pointer; }
+    .whatsapp { background: #25D366; color: white; text-decoration: none; padding: 10px 20px; border-radius: 8px; display: inline-block; margin-top: 10px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>PT. ICAL CMS LOGISTIK</h1>
+  <p>MELAYANI PENGIRIMAN KENDARAAN, BARANG, DAN MATERIAL KE SELURUH PELOSOK INDONESIA</p>
+</header>
+
+<section>
+  <h2>Form Pemesanan Pengiriman</h2>
+  <form onsubmit="kirimWA(event)">
+    <input type="text" id="nama" placeholder="Nama Lengkap" required />
+    <input type="tel" id="telp" placeholder="Nomor Telepon / WhatsApp" required />
+    <input type="text" id="jenis" placeholder="Jenis Pengiriman (Barang/Kendaraan)" required />
+    <input type="text" id="ambil" placeholder="Alamat Pengambilan" required />
+    <input type="text" id="tujuan" placeholder="Alamat Tujuan" required />
+    <textarea id="keterangan" placeholder="Keterangan Tambahan"></textarea>
+    <button type="submit">Kirim via WhatsApp</button>
+  </form>
+</section>
+
+<section>
+  <h2>Alamat & Lokasi</h2>
+  <p><strong>Makassar:</strong> JL. ANDALAS LR. 126E NO. 36</p>
+  <iframe src="https://maps.google.com/maps?q=Jl.%20Andalas%20LR.%20126%20E%20No.%2036%2C%20Makassar&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+
+  <p><strong>Jakarta:</strong> JL. Swasembada Timur XXI No. 26A</p>
+  <iframe src="https://maps.google.com/maps?q=Jl.%20Swasembada%20Timur%20XXI%20No.26A%2C%20Kebon%20Bawang%2C%20Jakarta%20Utara&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+</section>
+
+<section>
+  <h2>Kontak</h2>
+  <p>WhatsApp: <a href="https://wa.me/6281355550118" class="whatsapp">0813-5555-0118</a></p>
+  <p>Email: pticalcmslogistik@gmail.com</p>
+  <p>Instagram: <a href="https://instagram.com/ekpesidi.icalcms" target="_blank">@ekpesidi.icalcms</a></p>
+</section>
+
+<footer>
+  &copy; 2025 PT. ICAL CMS LOGISTIK. All rights reserved.
+</footer>
+
+<script>
+function kirimWA(event) {
+  event.preventDefault();
+  const nama = document.getElementById("nama").value;
+  const telp = document.getElementById("telp").value;
+  const jenis = document.getElementById("jenis").value;
+  const ambil = document.getElementById("ambil").value;
+  const tujuan = document.getElementById("tujuan").value;
+  const ket = document.getElementById("keterangan").value;
+
+  const pesan = `Halo, Saya ingin menggunakan jasa PT. Ical CMS Logistik.%0A%0A` +
+    `Nama: ${nama}%0A` +
+    `No. HP: ${telp}%0A` +
+    `Jenis Pengiriman: ${jenis}%0A` +
+    `Alamat Pengambilan: ${ambil}%0A` +
+    `Alamat Tujuan: ${tujuan}%0A` +
+    `Keterangan: ${ket}`;
+
+  window.open(`https://wa.me/6281355550118?text=${pesan}`, "_blank");
+}
+</script>
+
+</body>
+</html>
